@@ -1,7 +1,5 @@
 package lk.ijse.springpos.exception;
 
 public class CustomerNotFoundException extends RuntimeException {
-    public CustomerNotFoundException(String message) {
-        super(message);
-    }
+    public CustomerNotFoundException(String message) {}
 }
