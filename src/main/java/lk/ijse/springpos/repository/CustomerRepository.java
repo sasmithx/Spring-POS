@@ -1,8 +1,8 @@
-package lk.ijse.springpos.dao;
+package lk.ijse.springpos.repository;
 
 import lk.ijse.springpos.entity.CustomerEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface CustomerDAO extends JpaRepository<CustomerEntity,String> {
+public interface CustomerRepository extends JpaRepository<CustomerEntity,String> {
     CustomerEntity getCustomerEntityByCustomerId(String customerId);
 }
