@@ -1,5 +1,6 @@
 package lk.ijse.springpos.config;
 
+import jakarta.servlet.annotation.MultipartConfig;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
