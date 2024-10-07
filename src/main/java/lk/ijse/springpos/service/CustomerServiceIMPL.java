@@ -59,7 +59,7 @@ public class CustomerServiceIMPL implements CustomerService{
     @Override
     public CustomerResponse getSelectedCustomer(String customerId) {
         return (customerRepository.existsById(customerId))
-                ? mapping.convertToCustomerDTO(customerRepository.getCustomerEntityByCustomerId(customerId))
+                ? mapping.convertToCustomerDTO(customerRepository.getCustomerEntityById(customerId))
                 : new CustomerErrorResponse(0,"Customer not found");
     }
 

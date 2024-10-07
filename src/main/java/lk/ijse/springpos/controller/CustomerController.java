@@ -43,7 +43,7 @@ public class CustomerController {
         }
     }
 
-    @DeleteMapping("{/id}")
+    @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteCustomer(@PathVariable("id") String id) {
         try{
             customerService.deleteCustomer(id);

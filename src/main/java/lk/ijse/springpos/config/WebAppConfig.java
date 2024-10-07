@@ -10,8 +10,6 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 @Configuration
 @ComponentScan(basePackages = "lk.ijse.springpos")
 @EnableWebMvc
-@EnableJpaRepositories(basePackages = "lk.ijse.springpos")
-@EnableTransactionManagement
 public class WebAppConfig {
 
 }
