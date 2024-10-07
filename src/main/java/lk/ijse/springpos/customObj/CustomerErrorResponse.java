@@ -11,6 +11,6 @@ import java.io.Serializable;
 @NoArgsConstructor
 @Data
 public class CustomerErrorResponse implements CustomerResponse, Serializable {
-    private int errorcode;
+    private int errorCode;
     private String errorMessage;
 }
