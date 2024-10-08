@@ -26,20 +26,21 @@ public class ItemController {
     @PostMapping(consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     public ResponseEntity<Void> saveItem(
             @RequestPart("name") String name,
-            @RequestPart("price") BigDecimal price,
-            @RequestPart("qty") int qty){
+            @RequestPart("price") String price,
+            @RequestPart("qty") String qty){
         try{
             //Build the item object
             ItemDTO buildItemDTO = new ItemDTO();
             buildItemDTO.setName(name);
-            buildItemDTO.setPrice(price);
-            buildItemDTO.setQty(qty);
+            buildItemDTO.setPrice(Double.parseDouble(price));
+            buildItemDTO.setQty(Integer.parseInt(qty));
             //send to the service layer
             itemService.saveItem(buildItemDTO);
             return new ResponseEntity<>(HttpStatus.CREATED);
         }catch (DataPersistFailedException e){
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }catch (Exception e){
+            System.out.println(e.getMessage());
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
@@ -77,7 +78,7 @@ public class ItemController {
             ItemDTO buildItemDTO = new ItemDTO();
             buildItemDTO.setCode(itemCode);
             buildItemDTO.setName(updateName);
-            buildItemDTO.setPrice(updatePrice);
+            buildItemDTO.setPrice(Double.parseDouble(updatePrice.toString()));
             buildItemDTO.setQty(updateQty);
             itemService.updateItem(buildItemDTO);
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);

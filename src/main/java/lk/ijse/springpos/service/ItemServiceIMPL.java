@@ -30,6 +30,8 @@ public class ItemServiceIMPL implements ItemService{
     @Override
     public void saveItem(ItemDTO itemDTO) {
         itemDTO.setCode(AppUtil.createItemId());
+        //System.out.println(itemDTO);
+        //System.out.println(mapping.convertToItemEntity(itemDTO));
         ItemEntity savedItem =
                 itemRepository.save(mapping.convertToItemEntity(itemDTO));
         if(savedItem == null){

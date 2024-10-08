@@ -14,7 +14,7 @@ import java.math.BigDecimal;
 public class ItemDTO implements SuperDTO, ItemResponse {
     private String code;
     private String name;
-    private BigDecimal price;
+    private Double price;
     private int qty;
 //    private String id;
 }
