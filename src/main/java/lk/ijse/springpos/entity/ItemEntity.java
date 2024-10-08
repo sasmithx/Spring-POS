@@ -18,7 +18,7 @@ public class ItemEntity implements SuperEntity {
     private String name;
     private BigDecimal price;
     private int qty;
-    @ManyToOne
+    /*@ManyToOne
     @JoinColumn(name = "id",nullable = false)
-    private CustomerEntity customer;
+    private CustomerEntity customer;*/
 }
