@@ -71,16 +71,17 @@ public class ItemController {
     public ResponseEntity<Void> updateItem(
             @PathVariable("id") String itemCode,
             @RequestPart("updateName") String updateName,
-            @RequestPart("updatePrice") BigDecimal updatePrice,
-            @RequestPart("updateQty") int updateQty
+            @RequestPart("updatePrice") String updatePrice,
+            @RequestPart("updateQty") String updateQty
     ){
         try{
             ItemDTO buildItemDTO = new ItemDTO();
             buildItemDTO.setCode(itemCode);
             buildItemDTO.setName(updateName);
-            buildItemDTO.setPrice(Double.parseDouble(updatePrice.toString()));
-            buildItemDTO.setQty(updateQty);
+            buildItemDTO.setPrice(Double.parseDouble(updatePrice));
+            buildItemDTO.setQty(Integer.parseInt(updateQty));
             itemService.updateItem(buildItemDTO);
+            System.out.println("Updated Item");
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         }catch (ItemNotFoundException e){
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
