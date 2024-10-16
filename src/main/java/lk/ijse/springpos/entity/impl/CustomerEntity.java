@@ -1,11 +1,10 @@
-package lk.ijse.springpos.entity;
+package lk.ijse.springpos.entity.impl;
 
 import jakarta.persistence.*;
+import lk.ijse.springpos.entity.SuperEntity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor

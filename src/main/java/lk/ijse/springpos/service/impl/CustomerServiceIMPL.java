@@ -1,13 +1,14 @@
-package lk.ijse.springpos.service;
+package lk.ijse.springpos.service.impl;
 
 import jakarta.transaction.Transactional;
-import lk.ijse.springpos.customObj.CustomerErrorResponse;
+import lk.ijse.springpos.customObj.impl.CustomerErrorResponse;
 import lk.ijse.springpos.customObj.CustomerResponse;
 import lk.ijse.springpos.exception.CustomerNotFoundException;
 import lk.ijse.springpos.repository.CustomerRepository;
 import lk.ijse.springpos.dto.impl.CustomerDTO;
-import lk.ijse.springpos.entity.CustomerEntity;
+import lk.ijse.springpos.entity.impl.CustomerEntity;
 import lk.ijse.springpos.exception.DataPersistFailedException;
+import lk.ijse.springpos.service.CustomerService;
 import lk.ijse.springpos.util.AppUtil;
 import lk.ijse.springpos.util.Mapping;
 import lombok.RequiredArgsConstructor;
@@ -20,7 +21,7 @@ import java.util.Optional;
 @Service
 @Transactional
 @RequiredArgsConstructor
-public class CustomerServiceIMPL implements CustomerService{
+public class CustomerServiceIMPL implements CustomerService {
     @Autowired
     private final CustomerRepository customerRepository;
     @Autowired

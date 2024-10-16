@@ -1,13 +1,14 @@
-package lk.ijse.springpos.service;
+package lk.ijse.springpos.service.impl;
 
 import jakarta.transaction.Transactional;
-import lk.ijse.springpos.customObj.ItemErrorResponse;
+import lk.ijse.springpos.customObj.impl.ItemErrorResponse;
 import lk.ijse.springpos.customObj.ItemResponse;
 import lk.ijse.springpos.dto.impl.ItemDTO;
-import lk.ijse.springpos.entity.ItemEntity;
+import lk.ijse.springpos.entity.impl.ItemEntity;
 import lk.ijse.springpos.exception.DataPersistFailedException;
 import lk.ijse.springpos.exception.ItemNotFoundException;
 import lk.ijse.springpos.repository.ItemRepository;
+import lk.ijse.springpos.service.ItemService;
 import lk.ijse.springpos.util.AppUtil;
 import lk.ijse.springpos.util.Mapping;
 import lombok.RequiredArgsConstructor;
@@ -20,7 +21,7 @@ import java.util.Optional;
 @Service
 @Transactional
 @RequiredArgsConstructor
-public class ItemServiceIMPL implements ItemService{
+public class ItemServiceIMPL implements ItemService {
     @Autowired
     private final ItemRepository itemRepository;
     @Autowired
