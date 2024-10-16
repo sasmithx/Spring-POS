@@ -69,8 +69,6 @@ public class ItemController {
 
     @GetMapping(value = "/{id}",produces = MediaType.APPLICATION_JSON_VALUE)
     public ItemResponse getSelectedItem(@PathVariable("id") String id){
-        /*logger.info("Get selected item successfully by id: {}", id);
-        return itemService.getSelectedItem(id);*/
         logger.info("Received request to get item with ID: {}", id);
         try {
             ItemResponse itemResponse = itemService.getSelectedItem(id);
@@ -87,8 +85,6 @@ public class ItemController {
 
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<ItemDTO>> getAllItems(){
-        /*logger.info("Get all items successfully");
-        return new ResponseEntity<>(itemService.getAllItems(), HttpStatus.OK);*/
         logger.info("Received request to get all items");
         try {
             List<ItemDTO> items = itemService.getAllItems();
@@ -110,7 +106,7 @@ public class ItemController {
             @RequestPart("updatePrice") String updatePrice,
             @RequestPart("updateQty") String updateQty
     ){
-        logger.info("Received request to update item with ID");
+        logger.info("Received request to update item");
         try{
             ItemDTO buildItemDTO = new ItemDTO();
             buildItemDTO.setCode(itemCode);
