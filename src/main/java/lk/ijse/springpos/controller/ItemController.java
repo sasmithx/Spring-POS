@@ -14,7 +14,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.math.BigDecimal;
+
 import java.util.List;
 
 @RestController
@@ -53,29 +53,54 @@ public class ItemController {
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteItem(@PathVariable("id") String id){
+        logger.info("Received request to delete item with ID: {}", id);
         try {
             itemService.deleteItem(id);
-            logger.info("Item deleted successfully");
+            logger.info("Item deleted successfully with ID: {}", id);
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         }catch (ItemNotFoundException e){
-            logger.error("Item not found", e);
+            logger.error("Item not found with ID: {}", id, e);
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }catch (Exception e){
-            logger.error("Error deleting item", e);
+            logger.error("Error deleting item with ID: {}", id, e);
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 
     @GetMapping(value = "/{id}",produces = MediaType.APPLICATION_JSON_VALUE)
     public ItemResponse getSelectedItem(@PathVariable("id") String id){
-        logger.info("Get selected item successfully by id: {}", id);
-        return itemService.getSelectedItem(id);
+        /*logger.info("Get selected item successfully by id: {}", id);
+        return itemService.getSelectedItem(id);*/
+        logger.info("Received request to get item with ID: {}", id);
+        try {
+            ItemResponse itemResponse = itemService.getSelectedItem(id);
+            logger.info("Successfully retrieved item response with ID: {}", id);
+            return ResponseEntity.status(HttpStatus.OK).body(itemResponse).getBody();
+        } catch (ItemNotFoundException e) {
+            logger.error("Item not found with ID: {}", id, e);
+            return (ItemResponse) ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+        } catch (Exception e) {
+            logger.error("Error retrieving item with ID: {}", id, e);
+            return (ItemResponse) ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+        }
     }
 
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<ItemDTO>> getAllItems(){
-        logger.info("Get all items successfully");
-        return new ResponseEntity<>(itemService.getAllItems(), HttpStatus.OK);
+        /*logger.info("Get all items successfully");
+        return new ResponseEntity<>(itemService.getAllItems(), HttpStatus.OK);*/
+        logger.info("Received request to get all items");
+        try {
+            List<ItemDTO> items = itemService.getAllItems();
+            logger.info("Successfully retrieved all items");
+            return ResponseEntity.status(HttpStatus.OK).body(items);
+        } catch (ItemNotFoundException e) {
+            logger.error("No items found", e);
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+        } catch (Exception e) {
+            logger.error("Error retrieving all items", e);
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+        }
     }
 
     @PatchMapping(value = "/{id}",consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
@@ -85,6 +110,7 @@ public class ItemController {
             @RequestPart("updatePrice") String updatePrice,
             @RequestPart("updateQty") String updateQty
     ){
+        logger.info("Received request to update item with ID");
         try{
             ItemDTO buildItemDTO = new ItemDTO();
             buildItemDTO.setCode(itemCode);

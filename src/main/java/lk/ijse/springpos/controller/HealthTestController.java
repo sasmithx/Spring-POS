@@ -16,7 +16,7 @@ public class HealthTestController {
 
     @GetMapping
     public String healthTest(){
-        logger.info("Application is running");
+        logger.info("Application run successfully");
         return "Application run successfully";
     }
 }
