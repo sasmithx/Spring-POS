@@ -70,3 +70,12 @@ Refer to the [ Postman API Documentation](https://documenter.getpostman.com/view
 ## License
 
 This project is licensed under the MIT License - see the [ MIT License](https://github.com/sasmithx/Spring-POS?tab=MIT-1-ov-file#) file for details.
+
+##
+<div align="center">
+
+[![Tech Stack](https://skillicons.dev/icons?i=git,github,spring,hibernate,maven,mysql,postman)](https://skillicons.dev)
+</div> <br>
+<p align="center">
+  &copy; 2024 Sasmith Manawadu
+</p>
