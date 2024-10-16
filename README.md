@@ -60,7 +60,7 @@ Custom exceptions are designed to address specific error situations, delivering 
 ```bash
   https://github.com/sasmithx/Spring-POS.git
 ```
-
+## API Documentation
 
 To view this project API Documentation
 
