@@ -1,5 +1,5 @@
 
-<img src="https://miro.medium.com/v2/resize:fit:1200/1*8R5B_LRuli6JjogWugLV9Q.png" width="auto" height="200px">
+![Logo](https://upload.wikimedia.org/wikipedia/commons/4/44/Spring_Framework_Logo_2018.svg)
 
 # Spring POS
 
