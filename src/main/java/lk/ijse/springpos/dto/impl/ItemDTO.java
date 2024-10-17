@@ -16,5 +16,4 @@ public class ItemDTO implements SuperDTO, ItemResponse {
     private String name;
     private Double price;
     private int qty;
-//    private String id;
 }

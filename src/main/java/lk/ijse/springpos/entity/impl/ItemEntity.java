@@ -1,10 +1,14 @@
 package lk.ijse.springpos.entity.impl;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lk.ijse.springpos.entity.SuperEntity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -17,7 +21,7 @@ public class ItemEntity implements SuperEntity {
     private String name;
     private Double price;
     private int qty;
-    /*@ManyToOne
-    @JoinColumn(name = "id",nullable = false)
-    private CustomerEntity customer;*/
+    @OneToMany(mappedBy = "item", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JsonIgnore
+    private List<OrderDetailEntity> orderDetails = new ArrayList<>();
 }
