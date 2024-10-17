@@ -1,4 +1,6 @@
 
+<img src="https://miro.medium.com/v2/resize:fit:1200/1*8R5B_LRuli6JjogWugLV9Q.png" width="600px" height="auto">
+
 # Spring POS
 
 This is a Spring-based backend for a Point of Sale (POS) system. It provides RESTful APIs for managing customers, items, orders, and transactions. The project uses Spring, JPA, Hibernate,Tomcat, and MySQL for database connectivity.
@@ -60,6 +62,10 @@ Custom exceptions are designed to address specific error situations, delivering 
 ```bash
   https://github.com/sasmithx/Spring-POS.git
 ```
+## Database Configuration
+
+<img src="https://github.com/sasmithx/Spring-POS/blob/main/src/main/resources/db/db.png" width="600px" height="auto">
+
 ## API Documentation
 
 To view this project API Documentation
